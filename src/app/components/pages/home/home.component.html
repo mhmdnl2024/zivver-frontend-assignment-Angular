@@ -1,0 +1,25 @@
+@if (loading$ | async) {
+  <app-loading />
+}
+
+@if (selectedPostId) {
+  <div class="p-2 mb-3 sticky shadow-lg top-0 bg-pink-700 text-white text-lg font-bold">
+    Selected Post Id: <span class="text-yellow-300 tracking-wider">#{{selectedPostId}}</span>
+  </div>
+}
+
+@if (error$ | async) {
+  <div class="p-3 bg-red-100 border-2 border-red-200">{{error$ | async}}</div>
+}
+
+<div class="p-3 bg-orange-200 grid grid-cols-1 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10">
+  @for (post of posts$ | async; track post.id) {
+    <app-square
+      [id]="post.id"
+      [content]="post.id === selectedPostId ? post[activeProperty] : post.title"
+      (onSelectPostEmitter)="onSelectPost($event)"
+    />
+  } @empty {
+    <div class="p-3 bg-amber-100 border-2 border-amber-200">No data to show!</div>
+  }
+</div>
