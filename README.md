@@ -61,11 +61,11 @@ I also use Playwright for e2e testing, you can find test here: `./posts/e2e` tha
 ### 6-4) App structure and folders
 I decided to make it clear as much as I can... For example, you can find all shared components and pages here: `app/components` there is a specific folder for everything: services, models, and states.
 
-### Questions
+## 7) Questions
 
 Last but not least, I write the answers to the questions here:
 
-### JWT - Why is it (or isn't it) safe to use this?
+### 7-1) JWT - Why is it (or isn't it) safe to use this?
 
 According to the Authentication/Authorization process based on the JSON Token and not the classic session-cookie method, user enters username + password then back-end code generates JSON token that we can find it in server-response header, but for this token that you shared in PDF file:
 
@@ -84,16 +84,18 @@ I used JWT decoder and found it that, there are some weaknesses (security concer
 ```
 
 First of all, some properties are missing there:
-1- iat: We usually add it to determine when this token was generated from server
-2- iss: This property mentiones to that service on the backend side that generated this token
 
-I think it won't be a good idea to share email address in payload, I highly recommend to add "UserId" or any other identifier for the value.
+**1- iat:** We usually add it to determine when this token was generated from server
+
+**2- iss:** This property mentiones to that service on the backend side that generated this token
+
+I think it won't be a good idea to share email address in payload, I highly recommend to add `userId` or any other identifier for the value.
 
 Besides that, Is really needed to mention to the user role in payload? as I said before, if we send UserId instead of email, we can simply find user role on the backend side.
 
-In terms of best practices and naming convention, valid_until won't be a good name and we need to rename it to "exp" and value should be timestamp.
+In terms of best practices and naming convention `valid_until` won't be a good name and we need to rename it to `exp` and value should be timestamp.
 
-Finally, I highly recommend not to store much data in token, since not sharing cfitical data about user is also a security goal.
+Finally, I highly recommend not to store much data in token, since not sharing critical data about users is also a security goal.
 
 ### Security concerns due to request including HTML codes:
 
