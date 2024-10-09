@@ -97,6 +97,16 @@ In terms of best practices and naming convention `valid_until` won't be a good n
 
 Finally, I highly recommend not to store much data in token, since not sharing critical data about users is also a security goal.
 
-### Security concerns due to request including HTML codes:
+### 7-2) Security concerns due to request including HTML codes:
 
-The first and most important one is XSS attack... In the previous question, JWT token was mentioned, we usually store them in LocalStorage or Cookie! Attacker is able to inject JavaScript code and access to the victim's browser to hijack the tokan value.
+**7-2-1) XSS:** The first and most important one is XSS attack... In the previous question, JWT token was mentioned, we usually store them in LocalStorage or Cookie! Attacker is able to inject JavaScript code and access to the victim's browser to hijack the tokan value.
+
+**1-** Using CSP header is also an option but should be handled by server, CSP or Content-Security-Policy is a sort of response header from server that specifies which server or address is trusted for the client's browser.
+
+**2-** Using HTTP-only cookie is also a good idea to prevent access to cookies from an injected JavaScript code by attacker.
+
+**7-2-2) HTML injection or Defacing:** Attacker is able to injest malicious HTML codes, for example Iframe to open other webpages in backgorund.
+
+**1-** If we only need to to render layout HTML tags like: `p, div, h1-2-3..., table etc.` we can simply create a white list of allowed tags and replace others like iframe or script with white space to prevent this issue.
+
+**2-** Encoding special characters like: `< > " '` to their HTML name code version.
