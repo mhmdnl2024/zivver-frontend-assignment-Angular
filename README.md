@@ -61,9 +61,9 @@ I also use Playwright for e2e testing, you can find test here: `./posts/e2e` tha
 ### 6-4) App structure and folders
 I decided to make it clear as much as I can... For example, you can find all shared components and pages here: `app/components` there is a specific folder for everything: services, models, and states.
 
-## 7) Questions
+## 7) Questions ⁉️
 
-Last but not least, I write the answers to the questions here:
+Last but not least, I write the answers to the questions here 👇
 
 ### 7-1) JWT - Why is it (or isn't it) safe to use this?
 
@@ -110,3 +110,58 @@ Finally, I highly recommend not to store much data in token, since not sharing c
 **1-** If we only need to to render layout HTML tags like: `p, div, h1-2-3..., table etc.` we can simply create a white list of allowed tags and replace others like iframe or script with white space to prevent this issue.
 
 **2-** Encoding special characters like: `< > " '` to their HTML name code version.
+
+### 7-3) Explain the difference between mutable and immutable objects
+JavaScript data types are divided in 2 different categories:
+
+**1- Primitives:** String, Number and Boolean etc. are compared by value which are immutable, for example, consider the following code snippet:
+
+```
+let name = 'Mohammad';
+name[1] = 'X';
+console.log(name);
+// output: Mohammad
+```
+
+As you see the output is still Mohammad and changing the index 1 to X doesn't change the value.
+
+**2-Non-premitives:** Object, Array and FUnctions etc. are compared by reference which are mutable, for example, consider the following code snippet:
+
+```
+let obj = { name: 'Mohammad' }
+let copy = obj;
+obj.name = 'David';
+console.log(copy);
+// output: { name: 'David' }
+```
+
+As you see the output is `{ name: 'David' }` because `let copy = obj;` is compared by reference (`obj`) and any changes on the `obj` will be applied for `copy` as well.
+
+**Pros:** I can mention to not overriding on the source variable and easy for debugging since there is a single source and you don't need to check a series of variables.
+
+**Cons:** We need to copy source to define an immutable variable that uses more memory besides that, using spread syntax makes or nested data structure bring more complexity.
+
+Finally, we can use JavaScript built-in `Object.freeze()`, `Object.assign()` and spread syntax `{ ...obj }` (I've used it for NgRx states) or libraries like [Immutable.js](https://immutable-js.com/) for immutability.
+
+### 7-4) If you would have to speed up the loading of a web-application, how would you do that?
+
+**1-** One of the most important issues is unnecessary DOM re-renders that we can fix them in Angular by `trackBy` in loops or using `changeDetection`
+
+**2-** I thinkg using font-icon is a way to reduce server requests
+
+**3-** Using SVG files instead of PNG etc. minify assets
+
+**4-** Webpack supports code splitting and generates chunk files which is nice feature to use
+
+**5-** Caching HTTP requests and API response
+
+**6-** gzip compression is also helpful
+
+**7-** SSR is somehow helpful since loads the minumum required JavaScript code on the users's browser
+
+**8-** We can use some monitoring tools to find errors or check page load speed
+
+**9-** NPM packages like webpack-bundle-analyzer are also helpful
+
+
+Thank you for your attention, please let me know if there was an error while running the application so that we can solve the problem together. I hope the information in this file helps and the explanations are clear 😇
