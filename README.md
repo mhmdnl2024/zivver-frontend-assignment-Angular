@@ -1,3 +1,6 @@
+<img width="640" alt="Screenshot 2024-10-11 at 12 33 43" src="https://github.com/user-attachments/assets/fdaec704-a849-4ba8-887c-c8148c654582">
+
+
 ## 1) Install
 Clone this project on your machine then run this command in terminal:
 
