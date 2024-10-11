@@ -1,5 +1,28 @@
 <img width="640" alt="Screenshot 2024-10-11 at 12 33 43" src="https://github.com/user-attachments/assets/fdaec704-a849-4ba8-887c-c8148c654582">
 
+### How to fix the error? 🤕
+```
+Error: Could not find the @angular-devkit/build-angular:dev-server builder’s node package
+```
+
+I think there is something wrong with then Angular-CLI version that you are using... Please run these 2 commands:
+
+```
+1)
+npm uninstall @angular-devkit/build-angular
+
+then:
+
+2)
+npm install @angular-devkit/build-angular@^17.0.0 --save-dev
+```
+
+If there is still an issue please remove current `node_modules` folder then install the project with this command:
+
+```
+npm install --legacy-peer-deps
+```
+
 
 ## 1) Install
 Clone this project on your machine then run this command in terminal:
