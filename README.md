@@ -23,6 +23,22 @@ If there is still an issue please remove current `node_modules` folder then inst
 npm install --legacy-peer-deps
 ```
 
+Error?
+
+Please make the last version of Angular-cli is installed:
+
+```
+npm install -g @angular/cli
+```
+
+Finally, remove `node_modules` folder then run these commands:
+
+```
+1) ng update @angular/cli @angular/core
+2) npm cache clean --force
+3) npm install
+```
+
 
 ## 1) Install
 Clone this project on your machine then run this command in terminal:
