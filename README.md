@@ -8,6 +8,9 @@ Error: Could not find the @angular-devkit/build-angular:dev-server builder’s n
 I think there is something wrong with the Angular-CLI version that you are using... Please run these 2 commands:
 
 ```
+cd posts
+
+
 1)
 npm uninstall @angular-devkit/build-angular
 
@@ -20,6 +23,8 @@ npm install @angular-devkit/build-angular@^17.0.0 --save-dev
 If there is still an issue please remove current `node_modules` folder then install the project with this command:
 
 ```
+cd posts
+
 npm install --legacy-peer-deps
 ```
 
@@ -36,6 +41,9 @@ Finally, remove `node_modules` folder then run these commands:
 ```
 1) ng update @angular/cli @angular/core
 2) npm cache clean --force
+
+cd posts
+
 3) npm install
 ```
 
