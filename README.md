@@ -61,6 +61,12 @@ I also use Playwright for e2e testing, you can find test here: `./posts/e2e` tha
 ### 6-4) App structure and folders
 I decided to make it clear as much as I can... For example, you can find all shared components and pages here: `app/components` there is a specific folder for everything: services, models, and states.
 
+### 6-5) I used Array for the solution
+Since we need to switch between property keys, I decided to use Array as data structure to provide a solution. There is circular iteration on the Array including all the Post properties and the current-key changes after each click on the Square components. (based on the next Array index)
+
+### 6-5) TODO comments
+I usually add TODO comments to make review easier indeed, I mention to an improvement that can be done in the future!
+
 ## 7) Questions ⁉️
 
 Last but not least, I write the answers to the questions here 👇
