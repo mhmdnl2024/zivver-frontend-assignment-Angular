@@ -5,7 +5,7 @@
 Error: Could not find the @angular-devkit/build-angular:dev-server builder’s node package
 ```
 
-I think there is something wrong with then Angular-CLI version that you are using... Please run these 2 commands:
+I think there is something wrong with the Angular-CLI version that you are using... Please run these 2 commands:
 
 ```
 1)
