@@ -81,6 +81,12 @@ I've written e2e tests with Playwright that you can find them here: `./posts/e2e
 npm run e2e:test
 ```
 
+If playwright isn't install, you also need to run this command:
+
+```
+npx playwright install
+```
+
 ## 5) Are you a fan of Docker? 🐳
 No worries... This project is dockerized. First of all, make sure Docker is installed on your machine then, run this command in terminal:
 
